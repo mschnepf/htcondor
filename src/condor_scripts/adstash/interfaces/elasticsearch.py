@@ -295,9 +295,9 @@ class ElasticsearchInterface(GenericInterface):
         error_type_list.sort(key=itemgetter(1), reverse=True)
         error_type_strs = []
         for (error_type, n) in error_type_list[:3]:
-            error_type_str.append(f"{error_type} ({n} times)")
+            error_type_strs.append(f"{error_type} ({n} times)")
         logging.error(f"{n_errors} errors encountered during bulk index.")
-        logging.error(f"""Most common error type(s): {", ".join(error_type_str)}.""")
+        logging.error(f"""Most common error type(s): {", ".join(error_type_strs)}.""")
         try:
             logging.error(f"""Example reason: {random.choice(error_reasons)}.""")
         except IndexError:
